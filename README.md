@@ -1,14 +1,14 @@
 # LA Building Permits Analysis: Where Construction Activity and Investment Concentrate (2020 – May 2023)
 
-**Solo project** · Business analytics course project · Snowflake, Python, Streamlit
+**Solo project** · 177,704 permits · $22.93B valuation · Jan 2020 – May 2023 · Snowflake + Streamlit
 
 I analyzed 177,704 Los Angeles building permits issued between January 2020 and May 2023, representing $22.93B in project valuation, to answer one question: where are the city's construction activity and investment concentrated, what kind of work makes them up, and who does the work? I also built an interactive Streamlit in Snowflake dashboard that lets a user explore the same questions with filters.
 
 The short answer: most permits are for modest work on existing buildings (the median project is $20,000 and a third of permits are alterations or repairs), the areas with the most permits are not the areas with the most dollars, and contractor activity is distributed across many license numbers.
 
-![Dashboard header with four KPI cards](images/dashboard_overview.png)
+![Top 15 ZIP codes by number of permits and by total valuation](images/zip_volume_vs_value.png)
 
-*Dashboard header, shown in its default filtered view. The default filter hides the highest-valuation permits, so these cards show 119,725 permits and $5.07B rather than the full-data totals of 177,704 permits and $22.93B. The dashboard title says 2020-2024; the data ends on May 19, 2023.*
+*Top 15 ZIP codes by permit count (left) and by total valuation (right). The busiest areas are not where the most money goes.*
 
 ## Business Question
 
@@ -64,9 +64,7 @@ Between 2020 and 2022, permits rose 27% and total valuation rose 18%. The lower 
 
 ### 2. The areas with the most permits are not the areas with the most investment
 
-The 15 most active ZIP codes account for over a quarter of permit activity. ZIP 91326 (Porter Ranch) has the most permits, at 5,902. ZIP 90045 (Westchester) has the highest total valuation, at about $2.66B, which is several times that of any other ZIP code. Ranking areas by permit count and ranking them by dollars produces two different lists.
-
-![Top 15 ZIP codes by number of permits and by total valuation](images/zip_volume_vs_value.png)
+The 15 most active ZIP codes account for over a quarter of permit activity. ZIP 91326 (Porter Ranch) has the most permits, at 5,902. ZIP 90045 (Westchester) has the highest total valuation, at about $2.66B, which is several times that of any other ZIP code. Ranking areas by permit count and ranking them by dollars produces two different lists, as the chart at the top of this page shows.
 
 ### 3. Most permits are for work on existing buildings, not new construction
 
@@ -98,6 +96,10 @@ The permits list 12,968 unique license numbers. Solar and energy installers are 
 ## Dashboard
 
 I built the dashboard with Streamlit in Snowflake. It is not publicly hosted, because it runs against the course Snowflake database. The code is in the final cell of the notebook and in `streamlit_app.py`.
+
+![Dashboard header with four KPI cards](images/dashboard_overview.png)
+
+*Original Streamlit dashboard shown in its default filtered view. Data coverage: Jan 2020 – May 2023.*
 
 What it does:
 
